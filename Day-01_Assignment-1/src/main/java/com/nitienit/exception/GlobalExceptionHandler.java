@@ -16,9 +16,9 @@ public class GlobalExceptionHandler {
 	private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
 
-	@ExceptionHandler(ResourceNotFoundExcepetion.class)
+	@ExceptionHandler(ResourceNotFoundException.class)
 	@ResponseStatus(code=HttpStatus.BAD_REQUEST)
-	public ErrorMappingAPI handleException(ResourceNotFoundExcepetion ex) {
+	public ErrorMappingAPI handleException(ResourceNotFoundException ex) {
 		log.info("[GlobalExceptionHandler] :: handleException() case:ResourceNotFoundExcepetion starts");
 		var error =new ErrorMappingAPI();
 		error.setErrorCode(HttpStatus.BAD_REQUEST.value());
