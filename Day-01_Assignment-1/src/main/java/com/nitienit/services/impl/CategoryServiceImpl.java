@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nitienit.entity.Category;
+import com.nitienit.exception.ResourceNotFoundExcepetion;
 import com.nitienit.repositories.CategoryRepository;
 import com.nitienit.services.CategoryService;
 
@@ -40,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category findById(Long id) {
 
 		logger.info("[CategoryServiceImpl] :: (findById) id {}",id);
-		Category category=	categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("No Record found with id:"+id));
+		Category category=	categoryRepository.findById(id).orElseThrow(()-> new ResourceNotFoundExcepetion("No Record found with id:"+id));
 		logger.info("[CategoryServiceImpl] :: (findById) --find the record  of id {} successfully",id);
 		return category;
 	}
@@ -58,6 +59,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public void deleteCategory(Long id) {
 		logger.info("[CategoryServiceImpl] :: (deleteCategory) id {}",id);
 		if(categoryRepository.existsById(id)) {
+			logger.info("[CategoryServiceImpl] :: (deleteCategory) id  exist{}",id);
 			categoryRepository.deleteById(id);
 		}else {
 			throw new  RuntimeException("No Record found with id:"+id);
