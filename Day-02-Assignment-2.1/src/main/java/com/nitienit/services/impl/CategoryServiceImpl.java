@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nitienit.entity.Category;
+import com.nitienit.exception.ResourceNotFoundException;
 import com.nitienit.repositories.CategoryRepository;
 import com.nitienit.services.CategoryService;
 
@@ -33,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category getAllCategories(Long id) {
 		logger.info("[CategoryServiceImpl] :: (getAllCategories) ");
-		return	categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("No Record found"));
+		return	categoryRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("No Record found"));
 
 	}
 

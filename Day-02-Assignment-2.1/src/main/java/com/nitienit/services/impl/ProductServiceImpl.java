@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nitienit.entity.Product;
+import com.nitienit.exception.ResourceNotFoundException;
+import com.nitienit.repositories.CategoryRepository;
 import com.nitienit.repositories.ProductRepository;
 import com.nitienit.services.ProductService;
 
@@ -20,22 +22,30 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
 	@Override
 	public void createProduct(Product product) {
+		logger.info("[ProductServiceImpl] :: createProduct starts ");
 		//product.getIsStock(true);
 		product.setBarCode(UUID.randomUUID().toString());
 		productRepository.save(product);
+		logger.info("[ProductServiceImpl] :: createProduct ends ");
 	}
 
 	@Override
 	public Product getProduct(Long id) {
-		
-		return productRepository.findById(id).orElseThrow(()-> new RuntimeException("Record not found"));
+		logger.info("[ProductServiceImpl] :: getProduct starts/ends ");
+		return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Prdouct id not found in db"));
 	}
 
 	@Override
 	public void updateProduct(Long id, Product product) {
-	Product dbProduct=	productRepository.findById(id).orElseThrow(()-> new RuntimeException("Record not found"));
+	logger.info("[ProductServiceImpl] :: updateProduct starts id {} ",id);
+	Product dbProduct=	productRepository.findById(id).orElseThrow(()-> new RuntimeException("Prdouct id not found in db"));
+	
+	categoryRepository.findById(dbProduct.getCategory().getId()).orElseThrow(()-> new RuntimeException("Category id not found in db"));
 		
 	dbProduct.setName(product.getName());
 	dbProduct.setBarCode(product.getBarCode());
@@ -43,9 +53,9 @@ public class ProductServiceImpl implements ProductService {
 	dbProduct.setDescription(product.getDescription());
 	dbProduct.setPrice(product.getPrice());
 	dbProduct.setQuantity(product.getQuantity());
-	dbProduct.setStock(product.isStock());
-	
+	dbProduct.setIsStock(product.getIsStock());
 	productRepository.save(dbProduct);
+	logger.info("[ProductServiceImpl] :: updateProduct ends ");
 	
 	
 	}

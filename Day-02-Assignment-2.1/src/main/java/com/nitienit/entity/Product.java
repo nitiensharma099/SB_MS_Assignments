@@ -20,7 +20,7 @@ public class Product {
 	private double price;
 	private Integer quantity;
 	private String description;
-	private boolean isStock;
+	private Boolean isStock;
 	private String barCode;
 	
 	//Many to one 

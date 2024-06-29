@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nitienit</groupId>
-	<artifactId>SB-Assignment-1</artifactId>
+	<artifactId>Day-02_Assignment-2.1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SB-Assignment-1</name>
+	<name>Day-02_Assignment-2.1</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
