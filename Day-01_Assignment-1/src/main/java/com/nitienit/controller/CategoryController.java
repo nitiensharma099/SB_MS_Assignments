@@ -21,12 +21,12 @@ import com.nitienit.services.CategoryService;
 @RequestMapping("/api/v1/category")
 public class CategoryController {
 
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@PostMapping
 	public void createCategory(@RequestBody Category category) {
 		logger.info("[CategoryController]:: (createCategory) call");

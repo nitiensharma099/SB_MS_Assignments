@@ -12,14 +12,12 @@ import com.nitienit.entity.Category;
 import com.nitienit.repositories.CategoryRepository;
 import com.nitienit.services.CategoryService;
 
-import lombok.Data;
-
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
-	
+
 	@Autowired
 	private CategoryRepository categoryRepository;
 
@@ -40,7 +38,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category findById(Long id) {
-		
+
 		logger.info("[CategoryServiceImpl] :: (findById) id {}",id);
 		Category category=	categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("No Record found with id:"+id));
 		logger.info("[CategoryServiceImpl] :: (findById) --find the record  of id {} successfully",id);
