@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User findByUsernameOrEmail(String username, String email) {
+	public User findByUserNameOrEmail(String username, String email) {
 		logger.info("[userServiceImpl] :: (findByUsernameOrEmail) userName {}",email);
 		return userRepository.findByUserNameOrEmail(username, email);
 	}

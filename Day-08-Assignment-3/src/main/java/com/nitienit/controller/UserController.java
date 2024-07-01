@@ -78,5 +78,13 @@ public class UserController {
 		logger.info("[UserController]:: (getUserByEmail) successfully");
 		return dbUser;
 	}
-
+	
+	
+	@GetMapping("/emailoruserName/{userName}/{email}")
+	public User getUserByUserNameOrEmail(@PathVariable(name="userName") String userName,@PathVariable(name="email") String email) {
+		logger.info("[UserController]:: (getUserByUserName) call userName: {} - email: {}",userName, email);
+		User dbUser=	userService.findByUserNameOrEmail(userName,email);
+		logger.info("[UserController]:: (getUserByUserName) successfully");
+		return dbUser;
+	}
 }
