@@ -1,0 +1,11 @@
+package com.nitienit.accounts.dto;
+
+import jakarta.persistence.Column;
+
+public class AccountDto {
+	private Long accountNo;
+	private Long customerId;
+	private String accountType;
+	private String branchName;
+	private String branchAddress;
+}

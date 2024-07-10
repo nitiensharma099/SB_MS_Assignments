@@ -1,0 +1,32 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: accounts
+  datasource:
+    url: jdbc:mysql://localhost:3306/loanDB
+    username: root
+    password: Singh@11
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+info:
+  app:
+    description: Microservice for Loans
+    version: 0.0.0.1
+  contact: 7689350606
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+    
+

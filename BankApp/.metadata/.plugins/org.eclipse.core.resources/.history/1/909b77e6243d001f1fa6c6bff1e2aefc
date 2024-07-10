@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: accounts
+  datasource:
+    url: jdbc:mysql://localhost:3306/35dev
+    username: root
+    password: Singh@11
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

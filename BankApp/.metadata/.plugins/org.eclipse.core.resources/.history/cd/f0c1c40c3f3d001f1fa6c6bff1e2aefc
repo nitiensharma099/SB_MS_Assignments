@@ -1,0 +1,5 @@
+package com.nitienit.accounts.repository;
+
+public interface CustomerRepository {
+
+}

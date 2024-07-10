@@ -1,0 +1,5 @@
+package com.nitienit.accounts.entites;
+
+public class Customer {
+
+}

@@ -1,0 +1,9 @@
+package com.nitienit.accounts.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nitienit.accounts.dto.AccountDto;
+
+public interface AccountRepository extends JpaRepository<AccountDto, Long>{
+
+}

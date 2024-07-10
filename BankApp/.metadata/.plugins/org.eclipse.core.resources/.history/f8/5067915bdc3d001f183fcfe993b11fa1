@@ -1,0 +1,5 @@
+package com.nitienit.accounts.dto;
+
+public class CustomerDetailsDto {
+
+}
